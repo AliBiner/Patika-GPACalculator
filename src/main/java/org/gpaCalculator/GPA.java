@@ -5,13 +5,22 @@ import java.util.List;
 
 public class GPA {
     public static void main(String[] args){
+        // Create lesson list
         List<Lesson> lessonList = createLessons();
+
+        // Ask user to enter scores for each lesson
         lessonList = getLessonScoreOnConsole(lessonList);
+
+        // Calculate average
         float averageScore = GPACalculator.averageCalculator(lessonList);
+
+        // Check if average is enough to pass
         String result = averageScore < 60 ? "Kaldı" : "Geçti";
-        System.out.println(result);
+
+        System.out.println(result);// print result
     }
 
+    // This method creates lesson list without scores
     public static List<Lesson> createLessons(){
         List<Lesson> lessonList = new ArrayList<>();
         lessonList.add(new Lesson("Matematik"));
@@ -23,9 +32,13 @@ public class GPA {
         return lessonList;
     };
 
+    // This method gets score for each lesson from user
     public static List<Lesson> getLessonScoreOnConsole(List<Lesson> lessons){
         for (Lesson l: lessons){
+            // Ask score
             l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
+
+            // Check if score is valid (0-100)
             while (l.getScore()<0 || l.getScore()>100){
                 System.out.println("Geçersiz bir not girdiniz. Lütfen 0-100 arasında bir değer giriniz: ");
                 l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
