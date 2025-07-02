@@ -38,9 +38,15 @@ This is a simple Java console application to calculate the average score of seve
 
 ```scss 
 Matematik dersinin notunu giriniz(0-100): 
-> 80
+> 80.0
+Hatalı giriş! Lütfen tam sayı giriniz.
+Matematik dersinin notunu giriniz(0-100):
+>80
 Fizik dersinin notunu giriniz(0-100): 
-> 75
+> 500
+Geçersiz bir not girdiniz. Lütfen 0-100 arasında bir değer giriniz: 
+Fizik dersinin notunu giriniz(0-100): 
+>50
 Kimya dersinin notunu giriniz(0-100): 
 > 60
 Türkçe dersinin notunu giriniz(0-100): 
