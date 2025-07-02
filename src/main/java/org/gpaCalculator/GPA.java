@@ -6,7 +6,8 @@ import java.util.List;
 public class GPA {
     public static void main(String[] args){
         // Create lesson list
-        List<Lesson> lessonList = createLessons();
+        List<Lesson> lessonList = new ArrayList<>();
+        lessonList = createLessons(lessonList);
 
         // Ask user to enter scores for each lesson
         lessonList = getLessonScoreOnConsole(lessonList);
@@ -21,8 +22,7 @@ public class GPA {
     }
 
     // This method creates lesson list without scores
-    public static List<Lesson> createLessons(){
-        List<Lesson> lessonList = new ArrayList<>();
+    public static List<Lesson> createLessons(List<Lesson> lessonList){
         lessonList.add(new Lesson("Matematik"));
         lessonList.add(new Lesson("Fizik"));
         lessonList.add(new Lesson("Kimya"));
@@ -34,14 +34,14 @@ public class GPA {
 
     // This method gets score for each lesson from user
     public static List<Lesson> getLessonScoreOnConsole(List<Lesson> lessons){
-        for (Lesson l: lessons){
+        for (Lesson lesson: lessons){
             // Ask score
-            l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
+            lesson.setScore(OnConsole.getIntValueOnConsole(lesson.getName(),"dersinin notunu giriniz(0-100): "));
 
             // Check if score is valid (0-100)
-            while (l.getScore()<0 || l.getScore()>100){
+            while (lesson.getScore()<0 || lesson.getScore()>100){
                 System.out.println("Geçersiz bir not girdiniz. Lütfen 0-100 arasında bir değer giriniz: ");
-                l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
+                lesson.setScore(OnConsole.getIntValueOnConsole(lesson.getName(),"dersinin notunu giriniz(0-100): "));
             }
         }
         return lessons;
