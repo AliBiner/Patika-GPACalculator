@@ -25,7 +25,11 @@ public class GPA {
 
     public static List<Lesson> getLessonScoreOnConsole(List<Lesson> lessons){
         for (Lesson l: lessons){
-            l.setScore(OnConsole.getIntValueOnConsole(l.getName()));
+            l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
+            while (l.getScore()<0 || l.getScore()>100){
+                System.out.println("Geçersiz bir not girdiniz. Lütfen 0-100 arasında bir değer giriniz: ");
+                l.setScore(OnConsole.getIntValueOnConsole(l.getName(),"dersinin notunu giriniz(0-100): "));
+            }
         }
         return lessons;
     };
